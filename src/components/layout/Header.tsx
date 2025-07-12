@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useNavigation } from '@/hooks/useNavigation';
 import { Button } from '@/components/ui/Button';
-import { FiMenu, FiX, FiChevronDown, FiUser, FiLogOut, FiGrid, FiBookOpen } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiUser, FiLogOut, FiGrid, FiBookOpen, FiLock } from 'react-icons/fi';
 import clsx from 'clsx';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -155,6 +155,9 @@ export const Header: React.FC = () => {
                     </Link>
                     <Link href="/playground/play-query" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600">
                       <FiBookOpen className="w-4 h-4" /> Playground
+                    </Link>
+                    <Link href="/auth/change-password" className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600">
+                      <FiLock className="w-4 h-4" /> Change Password
                     </Link>
                     <button
                       onClick={() => {

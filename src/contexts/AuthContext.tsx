@@ -61,10 +61,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           // Only redirect to dashboard if user is not already on a protected page
           const currentPath = router.asPath
           const isOnAuthPage = currentPath.startsWith('/auth/')
+          const isOnResetPasswordPage = currentPath === '/auth/reset-password' || currentPath.startsWith('/auth/reset-password')
           const isOnPublicPage = currentPath === '/' || currentPath.startsWith('/auth')
           
-          if (isOnAuthPage || isOnPublicPage) {
+          console.log('Current path:', currentPath)
+          console.log('Is on reset password page:', isOnResetPasswordPage)
+          
+          // Don't redirect if user is on reset-password page (they need to set new password first)
+          if ((isOnAuthPage || isOnPublicPage) && !isOnResetPasswordPage) {
+            console.log('Redirecting to dashboard')
             router.push('/dashboard')
+          } else {
+            console.log('Not redirecting - user is on reset password page or already on dashboard')
           }
           // If already on dashboard pages, don't redirect to avoid interrupting navigation
         } else if (event === 'SIGNED_OUT') {

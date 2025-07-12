@@ -48,4 +48,19 @@ export const getCurrentUser = async () => {
 export const getCurrentSession = async () => {
   const { data: { session }, error } = await supabase.auth.getSession()
   return { session, error }
+}
+
+export const updateUserPassword = async (newPassword: string) => {
+  const { data, error } = await supabase.auth.updateUser({
+    password: newPassword
+  })
+  return { data, error }
+}
+
+export const verifyCurrentPassword = async (email: string, password: string) => {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+  return { data, error }
 } 
