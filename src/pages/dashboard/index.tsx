@@ -9,6 +9,14 @@ import { fetchTotalGrantsCount } from '@/utils/grantsApi';
 
 const dashboardFeatures = [
   {
+    icon: FiUser,
+    title: 'Profile Management',
+    description: 'View and edit your personal and professional information',
+    href: '/dashboard/profile',
+    color: 'bg-green-100 text-green-600',
+    bgColor: 'hover:bg-green-50',
+  },
+  {
     icon: FiUpload,
     title: 'LinkedIn Import',
     description: 'Upload your LinkedIn PDF to automatically populate your profile',
@@ -23,14 +31,6 @@ const dashboardFeatures = [
     href: '/dashboard/orcid-import',
     color: 'bg-emerald-100 text-emerald-600',
     bgColor: 'hover:bg-emerald-50',
-  },
-  {
-    icon: FiUser,
-    title: 'Profile Management',
-    description: 'View and edit your personal and professional information',
-    href: '/dashboard/profile',
-    color: 'bg-green-100 text-green-600',
-    bgColor: 'hover:bg-green-50',
   },
   {
     icon: FiTarget,
